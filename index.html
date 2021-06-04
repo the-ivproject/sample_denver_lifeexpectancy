@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Denver Live Expectancy</title>
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+  <!-- Load Leaflet from CDN -->
+  <link rel="stylesheet" href="css/leaflet.css" />
+
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+
+  <!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@3.0.2/dist/esri-leaflet.js"
+    integrity="sha512-myckXhaJsP7Q7MZva03Tfme/MSF5a6HC2xryjAM4FxPLHGqlh5VALCbywHnzs2uPoF/4G/QVXyYDDSkp5nPfig=="
+    crossorigin=""></script>
+
+  <style>
+    * {
+      font-family: 'Roboto';
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    h3 {
+      font-family: 'Roboto';
+      font-weight: 800;
+      font-size: 16px;
+      color: #000;
+    }
+
+    #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
+
+    .popup-table td {
+      padding: 4px;
+      border: 1px solid #0000003d;
+      color: #000;
+    }
+    .leaflet-popup-content {
+    margin: 14px 14px;
+    line-height: 1.4;
+}
+  </style>
+</head>
+
+<body>
+
+  <style>
+    #basemaps-wrapper {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 400;
+      background: white;
+      padding: 10px;
+    }
+
+    #basemaps {
+      padding: 4px;
+      border: 1px solid #00000036;
+      border-radius: 4px;
+      color: #000000;
+      font-size: 12px;
+    }
+
+    .leaflet-touch .leaflet-control-layers,
+    .leaflet-touch .leaflet-bar {
+      background-clip: padding-box;
+      box-shadow: 0 1px 5px rgb(0 0 0 / 65%);
+      border-radius: 4px;
+      border: none !important
+    }
+
+    /* #basemaps {
+      margin-bottom: 5px;
+    } */
+
+    .legend {
+      line-height: 18px;
+      color: #555;
+    }
+
+    .info {
+      background-color: white;
+      padding: 10px 20px;
+      border-radius: 4px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .legend i {
+      width: 15px;
+      height: auto;
+      float: left;
+      margin-right: 6px;
+      opacity: 0.7;
+      padding: 10px;
+
+    }
+
+    .legend li {
+      font-family: 'Roboto';
+      /* font-weight: 800; */
+      font-size: 12px;
+      color: #000;
+      margin: 8px 0px;
+    }
+
+    .legend-box {
+      width: 110px;
+      height: auto;
+      background: white;
+    }
+
+    .info .leaflet-control {
+      background-color: white !important;
+      padding: 20px;
+    }
+
+    .leaflet-popup-content-wrapper {
+      border-radius: 4px !important;
+    }
+
+    .leaflet-popup-close-button {
+      display: none;
+    }
+
+  </style>
+
+  <div id="map"></div>
+
+  <div id="basemaps-wrapper" class="leaflet-bar">
+    <select id="basemaps">
+      <option value="Topographic">Topographic</option>
+      <option value="Streets">Streets</option>
+      <option value="NationalGeographic">National Geographic</option>
+      <option value="Oceans">Oceans</option>
+      <option value="Gray">Gray</option>
+      <option value="DarkGray">Dark Gray</option>
+      <option value="Imagery">Imagery</option>
+      <option value="ImageryClarity">Imagery (Clarity)</option>
+      <option value="ImageryFirefly">Imagery (Firefly)</option>
+      <option value="ShadedRelief">Shaded Relief</option>
+      <option value="Physical">Physical</option>
+    </select>
+  </div>
+
+  <script src="js/basemap.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+  <script src="js/geo.js"></script>
+
+</body>
+
+</html>
